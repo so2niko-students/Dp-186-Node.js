@@ -18,4 +18,11 @@ function spinner(ob){
     console.log(arrows[ob.counter]);
 }
 
-setInterval(spinner, 500, {counter : 0});
+// setInterval(spinner, 500, {counter : 0});
+function spinner2(ob){
+    console.clear();
+    console.log(`[${'@'.repeat(ob.counter)}${'-'.repeat(10 - ob.counter)}]`);
+    ob.counter = (ob.counter + 1) % 11;
+}
+
+setInterval(spinner2, 500, {counter : 0});

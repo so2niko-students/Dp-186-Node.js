@@ -1,5 +1,6 @@
 export class ModelMessage{
     link = '/data/data.json';
+    messages;//array of objects
     constructor(cBack){
         this.handleLoad = cBack;
     }
@@ -14,5 +15,10 @@ export class ModelMessage{
         });
         ajax.open('GET', this.link);
         ajax.send();
+    }
+
+    filter(str){
+        const regSearch = new RegExp(str, 'i');
+        return this.messages.filter(({message})=>regSearch.test(message));
     }
 }

@@ -12,4 +12,9 @@ export class ControllerMessage{
     handleLoadMessages(arr){
         this.view.renderMessages(arr);
     }
+
+    handleSearch = (str)=>{
+        const data = this.model.filter(str);
+        this.view.renderMessages(data);
+    }
 }

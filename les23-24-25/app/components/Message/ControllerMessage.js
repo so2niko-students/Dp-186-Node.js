@@ -2,11 +2,13 @@ import { ViewMessage } from "./ViewMessage.js";
 import { ModelMessage } from "./ModelMessage.js";
 
 export class ControllerMessage{
-    constructor(){
+    constructor({subscribe}){
         this.view = new ViewMessage();
         this.model = new ModelMessage(this.handleLoadMessages.bind(this));
 
         this.model.getMessages();
+        this.subscribe = subscribe;
+        this.subscribe('search', this.handleSearch);
     }
 
     handleLoadMessages(arr){

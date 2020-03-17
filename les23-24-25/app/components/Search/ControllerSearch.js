@@ -1,13 +1,13 @@
 import { ViewSearch } from "./ViewSearch.js";
 
 export class ControllerSearch{
-    constructor(handleS){
+    constructor({notify}){
         this.view = new ViewSearch(this.handleSearch);
-        this.handleSearchMessage = handleS;
+        this.notify = notify;
     }
 
     handleSearch = ()=>{
-        this.handleSearchMessage(this.view.searchValue);
+        this.notify('search', this.view.searchValue);
     }
 
 }

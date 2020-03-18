@@ -9,6 +9,7 @@ export class ControllerMessage{
         this.model.getMessages();
         this.subscribe = subscribe;
         this.subscribe('search', this.handleSearch);
+        this.subscribe('pagination', this.handlePagination);
     }
 
     handleLoadMessages(arr){
@@ -17,6 +18,11 @@ export class ControllerMessage{
 
     handleSearch = (str)=>{
         const data = this.model.filter(str);
+        this.view.renderMessages(data);
+    }
+
+    handlePagination = (where = 'next')=>{
+        const data = this.model.getPaginationData(where);
         this.view.renderMessages(data);
     }
 }

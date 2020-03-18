@@ -19,19 +19,16 @@ export class Publisher{
     }
 
     notify = (event, data)=>{
+        console.log(this);
         if(!this.subscribes[event]){
             this.subscribes[event] = [];
         }
-        console.log('notify', event, data);
+        // console.log('notify', event, data);
         this.subscribes[event].forEach(func=>func(data));
     }
 
     unsubscribe = (event, callbackFunc)=>{
-        if(!this.subscribes[event]){
-            this.subscribes[event] = [];
-        }
-
-        this.subscribes[event] = this.subscribes[event].filter(func => func != callbackFunc);
+        this.subscribes[event] = !this.subscribes[event]? []: this.subscribes[event].filter(func => func != callbackFunc);
     }
 
 

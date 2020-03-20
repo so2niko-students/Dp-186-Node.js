@@ -1,0 +1,32 @@
+p{
+    margin: 0 15px;
+    padding: 15px;
+}
+
+p:hover{
+    background-color: rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+.modal{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: -200vw;
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-info{
+    width: 600px;
+    height: 300px;
+    background-color: silver;
+}
+
+.modal-show{
+    left: 0;
+}

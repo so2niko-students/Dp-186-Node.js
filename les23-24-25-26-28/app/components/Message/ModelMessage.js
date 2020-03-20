@@ -42,4 +42,8 @@ export class ModelMessage{
         const to = this.paginationPage * this.paginationCount;
         return this.curList.slice(from, to);
     }
+
+    getPost(id = 1){
+        return this.curList.find(msg => msg.id == id);
+    }
 }
